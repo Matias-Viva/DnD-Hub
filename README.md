@@ -11,7 +11,7 @@ A full-stack toolkit for Dungeon Masters and homebrew creators. Manage campaigns
 | 🗄️ Database schema | ✅ Complete | Migrations for users, compendium, sessions and homebrew |
 | 🌱 SRD seeds | 🔜 Pending | Import SRD 2014/2024 content from dnd5eapi.co |
 | ⚙️ Backend | 🟡 Started | Flask REST API with health check endpoint, deployed on Render |
-| 🎨 Frontend | 🔜 Pending | React + Vite SPA |
+| 🎨 Frontend | 🟡 Started | React + Vite SPA with health check, deployed on Vercel |
 
 ---
 
@@ -99,7 +99,19 @@ The backend is deployed at `https://dnd-hub-1sf8.onrender.com`.
 
 ### Frontend (Vercel)
 
-> 🔜 Instructions will be added once the frontend is implemented.
+The frontend is deployed at `https://your-frontend.vercel.app`.
+
+1. Create a new project on [vercel.com](https://vercel.com) and connect your repository
+2. Configure the project:
+   - **Root Directory:** `frontend`
+   - **Framework Preset:** `Vite`
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+   - **Production Branch:** `develop`
+3. Add the following environment variables:
+   ```
+   VITE_API_URL=https://dnd-hub-1sf8.onrender.com
+   ```
 
 ---
 
@@ -124,3 +136,19 @@ The backend is deployed at `https://dnd-hub-1sf8.onrender.com`.
 ```bash
    curl http://localhost:5000/api/health
 ```
+
+### Frontend
+
+1. Navigate to the `frontend/` directory
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open `http://localhost:5173` in your browser
+
+> The frontend dev server proxies `/api` requests to `http://localhost:5000`,
+> so the backend must be running locally for API calls to work.
