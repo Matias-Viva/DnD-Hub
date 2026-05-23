@@ -10,7 +10,7 @@ A full-stack toolkit for Dungeon Masters and homebrew creators. Manage campaigns
 |---|---|---|
 | 🗄️ Database schema | ✅ Complete | Migrations for users, compendium, sessions and homebrew |
 | 🌱 SRD seeds | 🔜 Pending | Import SRD 2014/2024 content from dnd5eapi.co |
-| ⚙️ Backend | 🔜 Pending | Flask REST API |
+| ⚙️ Backend | 🟡 Started | Flask REST API with health check endpoint, deployed on Render |
 | 🎨 Frontend | 🔜 Pending | React + Vite SPA |
 
 ---
@@ -82,7 +82,20 @@ A full-stack toolkit for Dungeon Masters and homebrew creators. Manage campaigns
 
 ### Backend (Render)
 
-> 🔜 Instructions will be added once the backend is implemented.
+The backend is deployed at `https://dnd-hub-1sf8.onrender.com`.
+
+1. Fork or clone the repository
+2. Create a new **Web Service** on [render.com](https://render.com)
+3. Configure the service:
+   - **Root Directory:** `backend`
+   - **Build Command:** `pip install uv && uv sync --frozen`
+   - **Start Command:** `uv run gunicorn "app:create_app()"`
+4. Add the following environment variables:
+```
+   FLASK_SECRET_KEY=your-secret-key-here
+   FLASK_ENV=production
+   CORS_ORIGINS=https://your-frontend.vercel.app
+```
 
 ### Frontend (Vercel)
 
@@ -92,4 +105,22 @@ A full-stack toolkit for Dungeon Masters and homebrew creators. Manage campaigns
 
 ## Local development
 
-_Setup instructions will be added as the project is built._
+### Backend
+
+1. Navigate to the `backend/` directory
+2. Copy the environment file and fill in your values:
+```bash
+   cp .env.example .env
+```
+3. Install dependencies:
+```bash
+   uv sync
+```
+4. Run the development server:
+```bash
+   uv run python run.py
+```
+5. Verify the health check:
+```bash
+   curl http://localhost:5000/api/health
+```
