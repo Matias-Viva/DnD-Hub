@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="frontend/src/assets/logo.png" alt="DnD Hub" width="300"/>
+</p>
+
 # DnD Hub
 
 A full-stack toolkit for Dungeon Masters and homebrew creators. Manage campaigns, build encounters, and bring your world to life with AI-powered assistants for characters, creatures, spells, maps, and more.
@@ -22,6 +26,7 @@ A full-stack toolkit for Dungeon Masters and homebrew creators. Manage campaigns
 | Frontend | React + Vite | Vercel |
 | Backend | Flask (Python) | Render |
 | Database | Supabase (PostgreSQL) | Supabase cloud |
+| AI | Anthropic API | — |
 
 ---
 
@@ -84,18 +89,17 @@ A full-stack toolkit for Dungeon Masters and homebrew creators. Manage campaigns
 
 The backend is deployed at `https://dnd-hub-1sf8.onrender.com`.
 
-1. Fork or clone the repository
-2. Create a new **Web Service** on [render.com](https://render.com)
-3. Configure the service:
+1. Clone the repository and create a new **Web Service** on [render.com](https://render.com)
+2. Configure the service:
    - **Root Directory:** `backend`
    - **Build Command:** `pip install uv && uv sync --frozen`
    - **Start Command:** `uv run gunicorn "app:create_app()"`
-4. Add the following environment variables:
-```
+3. Add the following environment variables:
+   ```
    FLASK_SECRET_KEY=your-secret-key-here
    FLASK_ENV=production
    CORS_ORIGINS=https://dnd-hub-beta.vercel.app
-```
+   ```
 
 ### Frontend (Vercel)
 
@@ -121,21 +125,21 @@ The frontend is deployed at `https://dnd-hub-beta.vercel.app`.
 
 1. Navigate to the `backend/` directory
 2. Copy the environment file and fill in your values:
-```bash
+   ```bash
    cp .env.example .env
-```
+   ```
 3. Install dependencies:
-```bash
+   ```bash
    uv sync
-```
+   ```
 4. Run the development server:
-```bash
+   ```bash
    uv run python run.py
-```
+   ```
 5. Verify the health check:
-```bash
+   ```bash
    curl http://localhost:5000/api/health
-```
+   ```
 
 ### Frontend
 
