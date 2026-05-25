@@ -14,7 +14,7 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <div style={{ padding: '2rem' }}>
       <img src={logo} alt="DnD Hub" />
       <h1>DnD Hub</h1>
       <p>Backend status: {status ?? 'checking...'}</p>
