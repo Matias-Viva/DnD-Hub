@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="frontend/src/assets/logo.png" alt="DnD Hub" width="300"/>
+  <img src="frontend/src/assets/logo.png" alt="DnD Hub"/>
 </p>
 
 # DnD Hub
