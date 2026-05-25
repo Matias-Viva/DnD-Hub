@@ -94,12 +94,12 @@ The backend is deployed at `https://dnd-hub-1sf8.onrender.com`.
 ```
    FLASK_SECRET_KEY=your-secret-key-here
    FLASK_ENV=production
-   CORS_ORIGINS=https://your-frontend.vercel.app
+   CORS_ORIGINS=https://dnd-hub-beta.vercel.app
 ```
 
 ### Frontend (Vercel)
 
-The frontend is deployed at `https://your-frontend.vercel.app`.
+The frontend is deployed at `https://dnd-hub-beta.vercel.app`.
 
 1. Create a new project on [vercel.com](https://vercel.com) and connect your repository
 2. Configure the project:
